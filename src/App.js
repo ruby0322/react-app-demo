@@ -51,7 +51,6 @@ const App = () => {
   };
 
   useEffect(() => {
-    Howler.volume(1.0);
     const timer1 = setTimeout(() => {newComment(FIRST_COMMENT)}, 1000);
     const timer2 = setTimeout(() => {newComment(SECOND_COMMENT)}, 3500);
     const timer3 = setTimeout(() => {newComment(THIRD_COMMENT)}, 5000);
