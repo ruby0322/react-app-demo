@@ -6,6 +6,9 @@
     background-color: rgba(22, 24, 34, 0.82);
     width: 100vw;
     height: 100vh;
+    background-image: url('https://media.discordapp.net/attachments/893439505988743178/1006501183462064209/E29BBEC2-038E-4C8D-8ED6-4201DFA43A85-removebg-preview.png');
+    background-repeat: no-repeat;
+    background-position-y: center;
 }
 
 #scroll-container {
