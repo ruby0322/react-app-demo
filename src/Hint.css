@@ -5,8 +5,13 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    font-weight: bold;
 }
 
 .hint:hover {
     opacity: 1;
+}
+
+.hint p {
+    background-color: rgba(255,255,255, 0.7);
 }
