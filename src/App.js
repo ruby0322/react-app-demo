@@ -60,7 +60,7 @@ const App = () => {
           <input id='urlInput' className='input' placeHolder='頭貼超連結'  onChange={ evt => { setUrlInput(evt.target.value); }}></input>
         </div>
         <Button 
-          text='+'
+          text='💬'
           bg='rgba(28, 32, 46, 0.88)'
           onClick={newComment}
         />
