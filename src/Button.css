@@ -1,0 +1,21 @@
+.button {
+    border-radius: 50%;
+    width: 2.5rem;
+    height: 2.5rem;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    color: #768CB1;
+    font-weight: bold;
+    font-size: x-large;
+    cursor: pointer;
+}
+
+.button p {
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    user-select: none;
+}

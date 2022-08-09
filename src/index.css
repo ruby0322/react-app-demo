@@ -11,3 +11,24 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.hover-scale {
+  -webkit-transition: -webkit-transform .07s; /* Safari */
+  transition: transform .07s;
+
+  -webkit-transform: scale(1.0);
+  -ms-transform: scale(1.0);
+  transform: scale(1.0);
+}
+
+.hover-scale:hover {
+  -webkit-transform: scale(1.04);
+  -ms-transform: scale(1.04);
+  transform: scale(1.04);
+}
+
+.shadow {
+	-webkit-box-shadow: 9px 10px 24px -1px rgba(0,0,0,0.2);
+	-moz-box-shadow: 9px 10px 24px -1px rgba(0,0,0,0.2);
+	box-shadow: 9px 10px 24px -1px rgba(0,0,0,0.2);
+}
