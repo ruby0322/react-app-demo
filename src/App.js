@@ -73,7 +73,7 @@ const App = () => {
         </div>
       </div>
       <p className='neon-text'>
-        { userData === undefined ? "Login with Facebook to Comment!" : "" }
+        { userData === undefined ? "Login with Facebook to Comment!" : `Logged in as ${userData.name}` }
       </p>
       <div id='form'>
         <div id='inputs'>
