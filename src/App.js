@@ -77,7 +77,7 @@ const App = () => {
         { userData === undefined ? "Login with Facebook to Comment!" : `Logged in as ${userData.name}` }
       </p>
       <div id='form'>
-        <Picture name={userData ? userData.name : '匿名笨豬'} imgUrl={userData ? userData.picture.data.url : GUEST_IMAGE_URL} />
+        <Picture id='profile-pic' name={userData ? userData.name : '匿名笨豬'} imgUrl={userData ? userData.picture.data.url : GUEST_IMAGE_URL} />
         <div id='inputs'>
           <input id='titleInput' className='input' placeHolder='標題' onChange={ evt => { setTitleInput(evt.target.value); }}></input>
           <input id='bodyInput' className='input' placeHolder='內文'  onChange={ evt => { setBodyInput(evt.target.value); }}></input>
@@ -87,24 +87,24 @@ const App = () => {
           bg='rgba(28, 32, 46, 0.88)'
           onClick={() => { if (userData) newComment(getCommentInput()); }}
         />
-        { 
-          userData === undefined ? 
-          <FacebookLogin
-            appId="1396364967552687"
-            autoLoad={true}
-            fields="name,email,picture"
-            onProfileSuccess={handleLogin}
-            onFail={(error) => {
-              console.log('Login Failed!', error);
-            }}
-            onSuccess={(response) => {
-              console.log('Login Success!', response);
-            }}
-            className='facebook-login hover-scale'
-          /> : 
-          <></> 
-        }
       </div>
+      { 
+        userData === undefined ? 
+        <FacebookLogin
+          appId="1396364967552687"
+          autoLoad={true}
+          fields="name,email,picture"
+          onProfileSuccess={handleLogin}
+          onFail={(error) => {
+            console.log('Login Failed!', error);
+          }}
+          onSuccess={(response) => {
+            console.log('Login Success!', response);
+          }}
+          className='facebook-login hover-scale'
+        /> : 
+        <></> 
+      }
     </div>
   );
 };

@@ -24,7 +24,9 @@ const Panel = props => {
             backgroundColor: props.bg
         }}>
             <div className='wrapper'>
-                <Picture {...props} />
+                <div className='profile-pic'>
+                    <Picture  {...props} />
+                </div>
                 <div class="content">
                     <p className="title" style={{color: props.titleColor}}>
                         {props.title}
