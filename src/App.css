@@ -6,7 +6,7 @@
     background-color: rgba(22, 24, 34, 0.82);
     width: 100vw;
     height: 100vh;
-    background-image: url('https://media.discordapp.net/attachments/893439505988743178/1006501183462064209/E29BBEC2-038E-4C8D-8ED6-4201DFA43A85-removebg-preview.png');
+    /* background-image: url('https://media.discordapp.net/attachments/893439505988743178/1006501183462064209/E29BBEC2-038E-4C8D-8ED6-4201DFA43A85-removebg-preview.png'); */
     background-repeat: no-repeat;
     background-position-y: center;
 }
@@ -33,7 +33,10 @@
     display: flex;
     justify-content: center;
     align-items:  center;
-    gap: 50px;
+    gap: 20px;
+    padding: 0;
+    margin: 0;
+    margin-top: -1rem;
 }
 
 .input {
@@ -41,7 +44,7 @@
     border-radius: 8px;
     background-color: rgba(28, 32, 46, 0.88);
     width: 30rem;
-    max-width: 65vw;
+    max-width: 60vw;
     height: 1.8rem;
     color: #768CB1;
 }
@@ -61,4 +64,26 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+
+.facebook-login {
+    color: rgba(0,0,0,0);
+    width: 3rem;
+    height: 3rem;
+    border: 0;
+    background-color: rgba(66, 103, 178, 0.9);
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/2021_Facebook_icon.svg/2048px-2021_Facebook_icon.svg.png');
+    background-size: cover;
+    border-radius: 50%;
+    cursor: pointer;
+    user-select: none;
+  }
+  
+.neon-text {
+    color: #F4EDEA;
+    text-shadow:
+        0 0 7px #fff,
+        0 0 10px #5B85AA,
+        0 0 21px #5B85AA,
+        0 0 42px #5B85AA;
 }

@@ -32,3 +32,16 @@ code {
 	-moz-box-shadow: 9px 10px 24px -1px rgba(0,0,0,0.2);
 	box-shadow: 9px 10px 24px -1px rgba(0,0,0,0.2);
 }
+
+.facebook-login {
+  color: rgba(0,0,0,0);
+  width: 3rem;
+  height: 3rem;
+  border: 0;
+  background-color: rgba(66, 103, 178, 0.9);
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/2021_Facebook_icon.svg/2048px-2021_Facebook_icon.svg.png');
+  background-size: cover;
+  border-radius: 50%;
+  cursor: pointer;
+  user-select: none;
+}
