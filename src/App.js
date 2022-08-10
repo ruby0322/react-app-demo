@@ -10,13 +10,12 @@ const PIG_IMAGE_URL = 'https://memeprod.sgp1.digitaloceanspaces.com/user-wtf/160
 const GUEST_IMAGE_URL = 'http://n.sinaimg.cn/sinakd10116/300/w1000h900/20200512/978a-itmiwrz3679873.jpg';
 
 class Comment {
-  constructor(imgUrl, title, body, likeCnt, bg, avbg, titleColor, bodyColor, name) {
+  constructor(imgUrl, title, body, likeCnt, bg, titleColor, bodyColor, name) {
     this.imgUrl = imgUrl;
     this.title = title;
     this.body = body;
     this.likeCnt = likeCnt;
     this.bg = bg;
-    this.avbg = avbg;
     this.titleColor = titleColor;
     this.bodyColor = bodyColor;
     this.commentID = -1;
@@ -25,9 +24,9 @@ class Comment {
   }
 };
 
-const FIRST_COMMENT = new Comment(PROFILE_IAMGE_URL, 'POV：你點進來就只為了看我', '哈哈，好笨喔！', 87, 'rgba(28, 32, 46, 0.88)', 'rgba(135,206,235, 0.15)', 'white', '#768CB1', '顧寬証');
-const SECOND_COMMENT = new Comment(PROFILE_IAMGE_URL, '不要告我', '好拉對不起，開玩笑的，不要告我拜託', 69, 'rgba(28, 32, 46, 0.88)', 'rgba(135,206,235, 0.15)', 'white', '#768CB1', '顧寬証');
-const THIRD_COMMENT =  new Comment(PIG_IMAGE_URL, '嗨，那個長得笨笨的人類！', '對，就是你，新來的，登入 Facebook，說些話吧！', 520, 'rgba(28, 32, 46, 0.88)', 'rgba(135,206,235, 0.15)', 'white', '#768CB1', '可ㄞㄉ小豬');
+const FIRST_COMMENT = new Comment(PROFILE_IAMGE_URL, 'POV：你點進來就只為了看我', '哈哈，好笨喔！', 87, 'rgba(28, 32, 46, 0.88)', 'white', '#768CB1', '顧寬証');
+const SECOND_COMMENT = new Comment(PROFILE_IAMGE_URL, '不要告我', '好拉對不起，開玩笑的，不要告我拜託', 69, 'rgba(28, 32, 46, 0.88)', 'white', '#768CB1', '顧寬証');
+const THIRD_COMMENT =  new Comment(PIG_IMAGE_URL, '嗨，那個長得笨笨的人類！', '對，就是你，新來的，登入 Facebook，說些話吧！', 520, 'rgba(28, 32, 46, 0.88)', 'white', '#768CB1', '可ㄞㄉ小豬');
 
 const App = () => {
   const [comments, setComments] = useState([]);
@@ -42,7 +41,6 @@ const App = () => {
     bodyInput || `大家好，我是${userData.name}，我超笨！`, 
     Math.floor(Math.random() * 2000), 
     'rgba(28, 32, 46, 0.88)', 
-    'rgba(135,206,235, 0.15)', 
     'white', 
     '#768CB1', 
     userData.name || '匿名笨豬'
@@ -54,10 +52,7 @@ const App = () => {
     document.querySelector('#comments').scrollIntoView({ behavior: 'smooth', block: 'end' });
   }
 
-  const handleLogin = data => {
-    setUserData(data);
-    console.log(data);
-  };
+  const handleLogin = data => { setUserData(data); };
 
   useEffect(() => {
     const timer1 = setTimeout(() => {newComment(FIRST_COMMENT)}, 1000);
@@ -101,14 +96,9 @@ const App = () => {
         <FacebookLogin
           appId="1396364967552687"
           autoLoad={true}
-          fields="name,email,picture"
           onProfileSuccess={handleLogin}
-          onFail={(error) => {
-            console.log('Login Failed!', error);
-          }}
-          onSuccess={(response) => {
-            console.log('Login Success!', response);
-          }}
+          onFail={error => console.log('Login Failed!', error)}
+          onSuccess={response => console.log('Login Success!', response)}
           className='facebook-login hover-scale'
         /> : 
         <></> 

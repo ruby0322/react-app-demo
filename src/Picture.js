@@ -4,7 +4,7 @@ import React, { useEffect, useState, useRef } from 'react';
 
 const Picture = props => {
     return (
-        <div className='avatar' style={{backgroundColor: props.avbg, backgroundImage: `url(${props.imgUrl})`, backgroundSize: 'cover'}}>
+        <div className='avatar' style={{width: props.size || '5.2rem', height: props.size || '5.2rem', backgroundColor: props.avbg || 'none', backgroundImage: `url(${props.imgUrl})`}}>
             <Hint text={props.name} w='100%' h='100%'/>
         </div>
     );
