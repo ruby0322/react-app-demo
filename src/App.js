@@ -1,6 +1,7 @@
 import './App.css';
 import Panel from './Panel'
 import Button from './Button'
+import Picture from './Picture';
 import React, { useEffect, useState, useRef } from 'react';
 import FacebookLogin from '@greatsumini/react-facebook-login';
 
@@ -76,6 +77,7 @@ const App = () => {
         { userData === undefined ? "Login with Facebook to Comment!" : `Logged in as ${userData.name}` }
       </p>
       <div id='form'>
+        <Picture name={userData ? userData.name : '匿名笨豬'} imgUrl={userData ? userData.picture.data.url : GUEST_IMAGE_URL} />
         <div id='inputs'>
           <input id='titleInput' className='input' placeHolder='標題' onChange={ evt => { setTitleInput(evt.target.value); }}></input>
           <input id='bodyInput' className='input' placeHolder='內文'  onChange={ evt => { setBodyInput(evt.target.value); }}></input>

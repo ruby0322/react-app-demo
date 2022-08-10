@@ -1,5 +1,5 @@
 import './Panel.css'
-import Hint from './Hint'
+import Picture from './Picture'
 import React, { useEffect, useState } from 'react';
 
 const Panel = props => {
@@ -24,9 +24,7 @@ const Panel = props => {
             backgroundColor: props.bg
         }}>
             <div className='wrapper'>
-                <div className='avatar' style={{backgroundColor: props.avbg, backgroundImage: `url(${props.imgUrl})`, backgroundSize: 'cover'}}>
-                    <Hint text={props.name} w='100%' h='100%'/>
-                </div>
+                <Picture {...props} />
                 <div class="content">
                     <p className="title" style={{color: props.titleColor}}>
                         {props.title}
