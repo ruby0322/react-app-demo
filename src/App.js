@@ -79,13 +79,21 @@ const App = () => {
       <div id='form'>
         <Picture id='profile-pic' name={userData ? userData.name : '匿名笨豬'} imgUrl={userData ? `http://graph.facebook.com/${userData.id}/picture?type=large` : GUEST_IMAGE_URL} />
         <div id='inputs'>
-          <input id='titleInput' className='input' placeHolder='標題' onChange={ evt => { setTitleInput(evt.target.value); }}></input>
-          <input id='bodyInput' className='input' placeHolder='內文'  onChange={ evt => { setBodyInput(evt.target.value); }}></input>
+          <input id='titleInput' className='input' placeHolder='標題' onChange={ evt => { setTitleInput(evt.target.value); }} value={titleInput}>
+          </input>
+          <input id='bodyInput' className='input' placeHolder='內文'  onChange={ evt => { setBodyInput(evt.target.value); }} value={bodyInput}>
+          </input>
         </div>
         <Button 
           text='💬'
           bg='rgba(28, 32, 46, 0.88)'
-          onClick={() => { if (userData) newComment(getCommentInput()); }}
+          onClick={() => { 
+            if (userData) {
+              newComment(getCommentInput());
+              setTitleInput('')
+              setBodyInput('');
+            } 
+        }}
         />
       </div>
       { 
