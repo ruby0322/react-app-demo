@@ -88,7 +88,7 @@ const App = () => {
           text='💬'
           bg='rgba(28, 32, 46, 0.88)'
           onClick={() => { 
-            if (userData) {
+            if (userData && (titleInput || bodyInput)) {
               newComment(getCommentInput());
               setTitleInput('')
               setBodyInput('');
