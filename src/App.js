@@ -34,7 +34,7 @@ const App = () => {
   commentsRef.current = comments;
   const [titleInput, setTitleInput] = useState('');
   const [bodyInput, setBodyInput] = useState('');
-  const [userData, setUserData] = useState({});
+  const [userData, setUserData] = useState(undefined);
   const getCommentInput = () => new Comment(
     userData.picture.data.url || GUEST_IMAGE_URL, 
     titleInput || '我不會打字', 
@@ -83,21 +83,25 @@ const App = () => {
         <Button 
           text='💬'
           bg='rgba(28, 32, 46, 0.88)'
-          onClick={() => { newComment(getCommentInput()); }}
+          onClick={() => { if (userData) newComment(getCommentInput()); }}
         />
-        <FacebookLogin
-          appId="1396364967552687"
-          autoLoad={true}
-          fields="name,email,picture"
-          onProfileSuccess={handleLogin}
-          onFail={(error) => {
-            console.log('Login Failed!', error);
-          }}
-          onSuccess={(response) => {
-            console.log('Login Success!', response);
-          }}
-          className='facebook-login hover-scale'
-        />
+        { 
+          userData === undefined ? 
+          <FacebookLogin
+            appId="1396364967552687"
+            autoLoad={true}
+            fields="name,email,picture"
+            onProfileSuccess={handleLogin}
+            onFail={(error) => {
+              console.log('Login Failed!', error);
+            }}
+            onSuccess={(response) => {
+              console.log('Login Success!', response);
+            }}
+            className='facebook-login hover-scale'
+          /> : 
+          <></> 
+        }
       </div>
     </div>
   );
