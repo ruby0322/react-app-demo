@@ -37,9 +37,9 @@ const App = () => {
   const [bodyInput, setBodyInput] = useState('');
   const [userData, setUserData] = useState(undefined);
   const getCommentInput = () => new Comment(
-    userData.picture.data.url || GUEST_IMAGE_URL, 
+    `http://graph.facebook.com/${userData.id}/picture?type=large` || GUEST_IMAGE_URL, 
     titleInput || '我不會打字', 
-    bodyInput || '大家好，我是匿名笨豬，我超笨！', 
+    bodyInput || `大家好，我是${userData.name}，我超笨！`, 
     Math.floor(Math.random() * 2000), 
     'rgba(28, 32, 46, 0.88)', 
     'rgba(135,206,235, 0.15)', 
@@ -77,7 +77,7 @@ const App = () => {
         { userData === undefined ? "Login with Facebook to Comment!" : `Logged in as ${userData.name}` }
       </p>
       <div id='form'>
-        <Picture id='profile-pic' name={userData ? userData.name : '匿名笨豬'} imgUrl={userData ? userData.picture.data.url : GUEST_IMAGE_URL} />
+        <Picture id='profile-pic' name={userData ? userData.name : '匿名笨豬'} imgUrl={userData ? `http://graph.facebook.com/${userData.id}/picture?type=large` : GUEST_IMAGE_URL} />
         <div id='inputs'>
           <input id='titleInput' className='input' placeHolder='標題' onChange={ evt => { setTitleInput(evt.target.value); }}></input>
           <input id='bodyInput' className='input' placeHolder='內文'  onChange={ evt => { setBodyInput(evt.target.value); }}></input>
