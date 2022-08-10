@@ -2,7 +2,7 @@ import './App.css';
 import Panel from './Panel'
 import Button from './Button'
 import React, { useEffect, useState, useRef } from 'react';
-import FacebookLogin from 'react-facebook-login';
+import FacebookLogin from '@greatsumini/react-facebook-login';
 
 const PROFILE_IAMGE_URL = 'https://media.discordapp.net/attachments/893439505988743178/1006503247349043230/08A95E27-9391-49C9-9079-227A4E16B7E5.JPG?width=801&height=1001';
 const PIG_IMAGE_URL = 'https://memeprod.sgp1.digitaloceanspaces.com/user-wtf/1604418323329.jpg';
@@ -89,8 +89,14 @@ const App = () => {
           appId="1396364967552687"
           autoLoad={true}
           fields="name,email,picture"
-          callback={handleLogin}
-          cssClass='facebook-login hover-scale'
+          onProfileSuccess={handleLogin}
+          onFail={(error) => {
+            console.log('Login Failed!', error);
+          }}
+          onSuccess={(response) => {
+            console.log('Login Success!', response);
+          }}
+          className='facebook-login hover-scale'
         />
       </div>
     </div>
